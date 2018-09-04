@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 
-	<!-- unidade de persistencia com o nome jpa2-hibernate -->
-	<persistence-unit name="jpa2-hibernate">
+	<!-- unidade de persistencia com o nome jpa2hibernate -->
+	<persistence-unit name="jpa2hibernate">
 
 		<!-- Implementação do JPA, no nosso caso Hibernate, poderia ser outro framework -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
@@ -14,24 +14,21 @@
 
 		<properties>
 			<!-- Propriedades JDBC -->
-			<property name="javax.persistence.jdbc.driver"
-				value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url"
-				value="jdbc:postgres://localhost/jpa2-hibernate" />
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/jpa2hibernate" />
 			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="postgres" />
 			
 			<!-- Configurações específicas do Hibernate -->
 			<!-- Dialeto dos nossos SQL, para ele convert ORM para SQL -->
-			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> 
 				
 			<!-- Cria as tabelas caso não exista e atualiza, ou seja incrementa, nunca apaga nada -->	
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			
 			<!-- Permite ver as querys no console antes de serem executadas. Super recomendado para debug -->
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
 		</properties>
 	</persistence-unit>
 </persistence>
