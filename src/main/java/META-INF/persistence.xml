@@ -4,6 +4,7 @@
 	version="2.0">
 
 	<!-- unidade de persistencia com o nome jpa2hibernate -->
+	<!-- Unidade de persistence que será chamado na classe Persistence -->
 	<persistence-unit name="jpa2hibernate">
 
 		<!-- Implementação do JPA, no nosso caso Hibernate, poderia ser outro framework -->

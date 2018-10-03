@@ -1,0 +1,14 @@
+# Conexão com banco PostgreSQL via terminal
+psql -h localhost -U postgres -W
+
+# Listar bancos
+\l ou \list
+
+# Selecionar um banco de dados
+\c NAME_DATABASE
+
+# Listar tabelas do banco
+\d ou \dt
+
+# Usar query normalmente
+select * from conta;
