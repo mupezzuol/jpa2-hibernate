@@ -1,3 +1,42 @@
 #### Segue abaixo os conteúdos mais importantes do curso
 
 
+# ESTADOS DAS ENTIDADES/JPA:
+
+1) MANAGED -> É um estado que ela sincroniza automaticamente com o banco de dados. Um estado gerenciado, ou seja, gerenciável, pronto para realziar
+qualquer tipo de operação.
+
+Exemplo: Quando temos uma entidade com estado de MANAGED se fizermos alterações (persit,delete etc..) após a linha de de um método "find()" 
+por exemplo, a operação chamada após ele surtirá efeito automaticamente no banco de dados, ou seja, fará o UPDATE automaticamente, pois o objeto está
+em estado MANAGED por conta da invocação do método "find()".
+
+
+2) TRANSIENT -> É quando temos uma entidade que se nós fecharmos a aplicação, ou qualquer outra coisa o objeto não surtirá efeito no banco de dados,
+pois ele está esperando ser alterado de estado. Ou seja, é um estado que ainda nunca foi gerenciado pelo banco.
+
+Exemplo: Quando chamamos um método PERSIST ele transforma essa entidade TRANSIENT em MANAGED para surtir efeito ao banco de dados, pois agora sim ela
+ficou gerenciável.
+
+
+Transiente = algo que não permanece; passageiro, transitório.
+
+
+3) MANAGED -> Está pronto para surtir efeito ao banco de dados, está gerenciável e possui a sincronização automatica com o banco de dados.
+
+Observação: O estado MENAGED irá durar até nós fecharmos o EntityManager
+
+
+4) DETACHED -> É um estado que mostra que uma entidade ela foi gerenciada pelo banco, ou seja, ela foi MANAGED, porém ela foi fechada, não é mais gerenciada,
+portanto a entidade JÁ FOI gerenciada e não é mais, contudo essa entidade fica como DETACHED.
+
+Como transformo o estado DETACHED para MANAGER?
+R: Nós utilizamos o método MERGE ao invés de usar o PERSIST.
+
+O objetivo do método MERGE é transformar uma entidade que JÁ FOI gerenciada(MANAGED) e que por conta disso atualmente é DETACHED faze-la virar
+MANAGER novamente.
+
+Lembrete: Caso a entidade nunca tenha sido gerenciada, ela seria TRANSIENT.
+
+
+Detalhe importante: Para usar o método REMOVE a entidade precisar estar no estado MANAGED, para tal podemos usar o método FIND() que realiza essa operação.
+

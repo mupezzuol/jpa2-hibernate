@@ -10,9 +10,9 @@
 		<!-- Implementação do JPA, no nosso caso Hibernate, poderia ser outro framework -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-		<!-- Aqui são listadas todas as entidades -->
+		<!-- Aqui são listadas todas as entidades que serão gerenciadas pela JPA -->
 		<class>br.com.pessoal.jpa2hibernate.model.Conta</class>
-
+		<class>br.com.pessoal.jpa2hibernate.model.Movimentacao</class>
 		<properties>
 			<!-- Propriedades JDBC -->
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
