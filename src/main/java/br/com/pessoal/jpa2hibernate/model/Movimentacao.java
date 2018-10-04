@@ -10,19 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import br.com.pessoal.jpa2hibernate.util.TipoMovimentacao;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Entity
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @EqualsAndHashCode @ToString
 public class Movimentacao {
 	
 	@Id
@@ -34,11 +25,61 @@ public class Movimentacao {
 	@Enumerated(EnumType.STRING)//Preciso dizer para JPA que ele é um ENUM
 	private TipoMovimentacao tipo; 
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	private LocalDate data;
 	
 	private String descricao;
 	
 	@ManyToOne //Muitos PARA Um (cardinalidade). Relacionamento entre as entidades
 	private Conta conta;
+	
+	
+	//Getter's and Setter's
+	public Integer getId() {
+		return Id;
+	}
+
+	public void setId(Integer id) {
+		Id = id;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	public TipoMovimentacao getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoMovimentacao tipo) {
+		this.tipo = tipo;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
+	
 }

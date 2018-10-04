@@ -12,3 +12,7 @@ psql -h localhost -U postgres -W
 
 # Usar query normalmente
 select * from conta;
+
+# Mostrar describe table
+
+\d TABLE;
