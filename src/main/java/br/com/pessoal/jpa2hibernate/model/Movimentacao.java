@@ -2,6 +2,7 @@ package br.com.pessoal.jpa2hibernate.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import br.com.pessoal.jpa2hibernate.util.TipoMovimentacao;
@@ -31,6 +33,9 @@ public class Movimentacao {
 	
 	@ManyToOne //Muitos PARA Um (cardinalidade). Relacionamento entre as entidades
 	private Conta conta;
+	
+	@ManyToMany //Usamos dessa forma para poder reutilizar uma mesma categoria em uma outra movimentacao
+	private List<Categoria> categoria;
 	
 	
 	//Getter's and Setter's
