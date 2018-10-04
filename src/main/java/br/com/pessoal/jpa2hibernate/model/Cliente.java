@@ -20,7 +20,7 @@ public class Cliente {
 	private Conta conta;
 	
 	
-	//Getter's and Setter's
+	//Getter's and Setter's 
 	public Integer getId() {
 		return id;
 	}
