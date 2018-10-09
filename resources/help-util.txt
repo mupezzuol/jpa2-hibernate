@@ -14,5 +14,7 @@ psql -h localhost -U postgres -W
 select * from conta;
 
 # Mostrar describe table
-
 \d TABLE;
+
+# Deletar sessoe de conexao do banco para um eventual DROP DATABASE
+SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'NAME_BD' AND pid <> pg_backend_pid();

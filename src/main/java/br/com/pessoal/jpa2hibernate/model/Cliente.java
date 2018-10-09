@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,6 +17,7 @@ public class Cliente {
 	private String profissao;
 	private String endereco;
 	
+	@JoinColumn(unique=true)//Faz com que essa conta seja somente desse CLIENTE. Porém ele só funciona na hora da criação do esquema, Ficar atento.
 	@OneToOne //Porém dependendo da sua regra de negocio ele pode ter várias contas, e essas contas pertence a 1 cliente
 	private Conta conta;
 	
@@ -45,6 +47,11 @@ public class Cliente {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	
+	public Conta getConta() {
+		return conta;
+	}
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
 	
 }

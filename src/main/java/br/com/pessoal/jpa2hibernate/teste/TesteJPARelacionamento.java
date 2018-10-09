@@ -25,9 +25,9 @@ public class TesteJPARelacionamento {
 		//Criando uma movimentação e RELACIONANDO a Conta criada
 	    Movimentacao movimentacao = new Movimentacao();
 	    movimentacao.setData(LocalDate.now());
-	    movimentacao.setDescricao("Churrascaria");
+	    movimentacao.setDescricao("Churrascaria Teste2");
 	    movimentacao.setTipo(TipoMovimentacao.SAIDA);
-	    movimentacao.setValor(new BigDecimal("200.0"));
+	    movimentacao.setValor(new BigDecimal("240.0"));
 		movimentacao.setConta(conta);
 		
 		
