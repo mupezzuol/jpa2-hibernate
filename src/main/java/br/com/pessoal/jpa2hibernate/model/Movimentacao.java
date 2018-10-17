@@ -32,7 +32,7 @@ public class Movimentacao {
 	private String descricao;
 	
 	@ManyToOne //Muitos PARA Um (cardinalidade). Relacionamento entre as entidades
-	private Conta conta;
+	private Conta conta;//Esse cara é a parte forte do relacionamento de movimentacoes de conta, pois ele que cria o conta_id
 	
 	@ManyToMany //Usamos dessa forma para poder reutilizar uma mesma categoria em uma outra movimentacao
 	private List<Categoria> categoria;
@@ -94,6 +94,5 @@ public class Movimentacao {
 	public void setCategorias(List<Categoria> categoria) { 
         this.categoria = categoria;
     }
-	
-	
+
 }

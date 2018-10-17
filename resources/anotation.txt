@@ -40,3 +40,23 @@ Lembrete: Caso a entidade nunca tenha sido gerenciada, ela seria TRANSIENT.
 
 Detalhe importante: Para usar o método REMOVE a entidade precisar estar no estado MANAGED, para tal podemos usar o método FIND() que realiza essa operação.
 
+
+# N + 1
+N + 1, por realizar 1 select para buscar as contas e, para cada uma delas, no laço, foi feito mais um select para buscar as movimentações 
+correspondentes.
+
+O PROBLEMA -> A cada conta ele executa um select, ou seja, são executados muitos SELECT
+
+
+# LAZY (PREGUIÇOSO)
+Os relacionamentos [...]ToMany, que são listas ou conjuntos, são considerados Lazy, com "carregamento preguiçoso". 
+Ou seja, o JPA só irá ao banco para buscar estes relacionamentos quando você precisa deles, ao chamarmos o método getMovimentacoes(), por exemplo.
+
+
+# EAGER LOADING (ANSIOSO)
+Porém, podemos não querer isto e, pela quantidade de queries feitas, queremos que quando a conta for buscada, sejam trazidas também as movimentações.
+ Então, precisaremos substituir o comportamento Lazy por Eager Loading, a partir do parâmetro 'join fetch', o que quer dizer que queremos juntar, nesta query, 
+ a conta e a movimentação.
+ 
+ 
+ 

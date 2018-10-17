@@ -1,9 +1,12 @@
 package br.com.pessoal.jpa2hibernate.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Conta {
@@ -16,8 +19,10 @@ public class Conta {
 	private String banco;
 	private String agencia;
 	
+	@OneToMany(mappedBy="conta")//Esse é o relacionamento mais fraco, por isso indicamos que ele já foi mapeado no atributo 'conta' da classe movimentacao
+	private List<Movimentacao> movimentacoes;
+	
 	public Conta() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Conta(Integer id, String titular, String numero, String banco, String agencia) {
@@ -67,6 +72,10 @@ public class Conta {
 
 	public void setAgencia(String agencia) {
 		this.agencia = agencia;
+	}
+
+	public List<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
 	}
 	
 }
