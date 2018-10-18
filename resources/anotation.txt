@@ -59,4 +59,5 @@ Porém, podemos não querer isto e, pela quantidade de queries feitas, queremos 
  a conta e a movimentação.
  
  
- 
+ # Named Query
+ O qual permite justamente declararmos uma query identificando-a com um nome e, depois, referenciá-la quando formos utilizá-la.
